@@ -19,6 +19,8 @@ public class Persona
     private int edad;
     
     private int caloriasIngeridas;
+    
+    private Comida alimentoMasCalorico;
 
     /**
      * Constructor for objects of class Persona
@@ -32,6 +34,7 @@ public class Persona
         this.altura = altura;
         this.edad = edad;
         caloriasIngeridas = 0;
+        alimentoMasCalorico = null;
     }
     
     public int comer(Comida comida)
@@ -46,6 +49,9 @@ public class Persona
         else{
             caloriasIngeridasEnEstaComida = comida.getCalorias();
             this.caloriasIngeridas += caloriasIngeridasEnEstaComida;
+            if (alimentoMasCalorico == null || comida.getCalorias() >= alimentoMasCalorico.getCalorias()){
+                alimentoMasCalorico = comida;
+            }
         }
         return caloriasIngeridasEnEstaComida;
     }
@@ -83,6 +89,19 @@ public class Persona
             textoADevolver = pregunta.toUpperCase();
         }
         return textoADevolver;
+    }
+    
+    public String getAlimentoMasCaloricoConsumido()
+    {
+        String nombreAlimentoMasCalorico = null;
+        if (alimentoMasCalorico == null){
+            System.out.println(nombre + " no ha comido nada aún");
+        }
+        else{
+            System.out.println(alimentoMasCalorico.getNombre());
+            nombreAlimentoMasCalorico = alimentoMasCalorico.getNombre();
+        }
+        return nombreAlimentoMasCalorico;
     }
     
     

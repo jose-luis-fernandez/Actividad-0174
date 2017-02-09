@@ -26,5 +26,10 @@ public class Comida
     {
         return calorias;
     }
+    
+    public String getNombre()
+    {
+        return nombre;
+    }
 
 }
