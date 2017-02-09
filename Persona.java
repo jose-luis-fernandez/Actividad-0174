@@ -55,6 +55,36 @@ public class Persona
         return caloriasIngeridas;
     }
     
+    public String contestar(String pregunta)
+    {
+        String textoADevolver = null;
+        if (hombre && caloriasIngeridas <= ((10 * peso) + (6 * altura) + (5 * edad) + 5) && pregunta.length() % 3 == 0){
+            System.out.println("SI");
+            textoADevolver = "SI";
+        }
+        else if(hombre && caloriasIngeridas <= ((10 * peso) + (6 * altura) + (5 * edad) + 5) && pregunta.length() % 3 != 0){
+            System.out.println("NO");
+            textoADevolver = "NO";
+        }
+        if (hombre == false && caloriasIngeridas <= ((10 * peso) + (6 * altura) + (5 * edad) - 161) && (pregunta.length() % 3) == 0){
+            System.out.println("SI");
+            textoADevolver = "SI";
+        }
+        else if (hombre == false && caloriasIngeridas <= ((10 * peso) + (6 * altura) + (5 * edad) - 161) && (pregunta.length() % 3) != 0){
+            System.out.println("NO");
+            textoADevolver = "NO";
+        }
+        if (hombre && caloriasIngeridas > ((10 * peso) + (6 * altura) + (5 * edad) + 5) || pregunta.contains(this.nombre)){
+            System.out.println(pregunta.toUpperCase());
+            textoADevolver = pregunta.toUpperCase();
+        }
+        else if (hombre == false && caloriasIngeridas > ((10 * peso) + (6 * altura) + (5 * edad) - 161)){
+            System.out.println(pregunta.toUpperCase());
+            textoADevolver = pregunta.toUpperCase();
+        }
+        return textoADevolver;
+    }
+    
     
     
     
