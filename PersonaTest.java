@@ -177,7 +177,10 @@ public class PersonaTest
         assertEquals(80, persona3.comer(comida8));
         assertEquals("b", persona3.getAlimentoMasCaloricoConsumido());
     }
+
+
 }
+
 
 
 
